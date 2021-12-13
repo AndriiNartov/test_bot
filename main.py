@@ -2,6 +2,7 @@ import os
 import sys
 
 from aiogram import types
+from aiogram.utils.executor import start_webhook
 
 from config import *
 from tg_bot.handlers import bot, dp, start
