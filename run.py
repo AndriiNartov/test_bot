@@ -33,7 +33,7 @@ async def startcom(message: types.Message):
     await message.reply('Hi, user!')
 
 
-async def on_startup():
+async def on_startup(dp):
     await bot.set_webhook(WEBHOOK_URL)
 
     webhook = await bot.get_webhook_info()
@@ -44,15 +44,19 @@ async def on_startup():
         await bot.set_webhook(WEBHOOK_URL)
 
 
-async def on_shutdown():
+async def on_shutdown(dp):
     logging.warning('Shutting down..')
     await bot.delete_webhook()
 
 
 if __name__ == "__main__":
 
-    app = get_new_configured_app(dispatcher=dp, path=WEBHOOK_PATH)
-    app.on_startup.append(on_startup)
-    app.on_shutdown.append(on_shutdown)
-
-    web.run_app(app, host=WEBAPP_HOST, port=WEBAPP_PORT)
+    start_webhook(
+        dispatcher=dp,
+        webhook_path=WEBHOOK_PATH,
+        on_startup=on_startup,
+        on_shutdown=on_shutdown,
+        skip_updates=True,
+        host=WEBAPP_HOST,
+        port=WEBAPP_PORT
+    )
