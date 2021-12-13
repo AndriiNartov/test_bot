@@ -7,4 +7,4 @@ ACCESS_SECRET_TOKEN = 'FAdSPZcNYnaD9RNy7gxGDAj5OINziy5zMA9nBoR6fkmkX'
 
 BOT_API_TOKEN = '5076771207:AAFEs_gXY7nvy2heoEJquCvKQKBJAjD8nq4'
 
-APP_URL = '' + BOT_API_TOKEN
+APP_URL = 'https://test-bot-twitter.herokuapp.com/' + BOT_API_TOKEN
