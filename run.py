@@ -51,8 +51,8 @@ async def on_shutdown(dp):
 
 if __name__ == "__main__":
 
-    bot.delete_webhook()
-    bot.set_webhook(APP_URL)
+    await bot.delete_webhook()
+    await bot.set_webhook(APP_URL)
 
     # start_webhook(
     #     dispatcher=dp,
