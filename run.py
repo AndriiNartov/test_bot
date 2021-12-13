@@ -15,11 +15,11 @@ from config import BOT_API_TOKEN, APP_URL
 API_TOKEN = BOT_API_TOKEN
 
 WEBHOOK_HOST = "https://test-bot-twitter.herokuapp.com/"
-WEBHOOK_PATH = "/run.py"
+WEBHOOK_PATH = f"/webhook/{BOT_API_TOKEN}"
 WEBHOOK_URL = f"{WEBHOOK_HOST}{WEBHOOK_PATH}"
 
-WEBAPP_HOST = "91.108.6.61"
-WEBAPP_PORT = 443
+WEBAPP_HOST = "0.0.0.0"
+WEBAPP_PORT = 3001
 
 logging.basicConfig(level=logging.INFO)
 
