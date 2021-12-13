@@ -18,7 +18,7 @@ WEBHOOK_HOST = "https://test-bot-twitter.herokuapp.com/"
 WEBHOOK_PATH = "/run.py"
 WEBHOOK_URL = f"{WEBHOOK_HOST}{WEBHOOK_PATH}"
 
-WEBAPP_HOST = '54.78.134.111'
+WEBAPP_HOST = APP_URL
 WEBAPP_PORT = 443
 
 logging.basicConfig(level=logging.INFO)
@@ -51,15 +51,12 @@ async def on_shutdown(dp):
 
 if __name__ == "__main__":
 
-    await bot.delete_webhook()
-    await bot.set_webhook(APP_URL)
-
-    # start_webhook(
-    #     dispatcher=dp,
-    #     webhook_path=WEBHOOK_PATH,
-    #     on_startup=on_startup,
-    #     on_shutdown=on_shutdown,
-    #     skip_updates=True,
-    #     host=WEBAPP_HOST,
-    #     port=WEBAPP_PORT
-    # )
+    start_webhook(
+        dispatcher=dp,
+        webhook_path=WEBHOOK_PATH,
+        on_startup=on_startup,
+        on_shutdown=on_shutdown,
+        skip_updates=True,
+        host=WEBAPP_HOST,
+        port=WEBAPP_PORT
+    )
