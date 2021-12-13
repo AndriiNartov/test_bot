@@ -18,7 +18,7 @@ WEBHOOK_HOST = "https://test-bot-twitter.herokuapp.com/"
 WEBHOOK_PATH = "/run.py"
 WEBHOOK_URL = f"{WEBHOOK_HOST}{WEBHOOK_PATH}"
 
-WEBAPP_HOST = '54.228.42.199'
+WEBAPP_HOST = '54.78.134.111'
 WEBAPP_PORT = 443
 
 logging.basicConfig(level=logging.INFO)
