@@ -22,4 +22,4 @@ async def redirect_message(request: Request):
 if __name__ == '__main__':
     bot.delete_webhook()
     bot.set_webhook(APP_URL)
-    os.system('uvicorn main:app --reload')
+    os.system('uvicorn main:app --host 0.0.0.0 --reload')
