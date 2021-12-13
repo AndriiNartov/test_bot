@@ -10,7 +10,7 @@ from aiogram.dispatcher.webhook import get_new_configured_app
 from aiogram.dispatcher.webhook import SendMessage
 from aiogram.utils.executor import start_webhook
 
-from config import BOT_API_TOKEN
+from config import BOT_API_TOKEN, APP_URL
 
 API_TOKEN = BOT_API_TOKEN
 
@@ -51,12 +51,15 @@ async def on_shutdown(dp):
 
 if __name__ == "__main__":
 
-    start_webhook(
-        dispatcher=dp,
-        webhook_path=WEBHOOK_PATH,
-        on_startup=on_startup,
-        on_shutdown=on_shutdown,
-        skip_updates=True,
-        host=WEBAPP_HOST,
-        port=WEBAPP_PORT
-    )
+    bot.delete_webhook()
+    bot.set_webhook(APP_URL)
+
+    # start_webhook(
+    #     dispatcher=dp,
+    #     webhook_path=WEBHOOK_PATH,
+    #     on_startup=on_startup,
+    #     on_shutdown=on_shutdown,
+    #     skip_updates=True,
+    #     host=WEBAPP_HOST,
+    #     port=WEBAPP_PORT
+    # )
